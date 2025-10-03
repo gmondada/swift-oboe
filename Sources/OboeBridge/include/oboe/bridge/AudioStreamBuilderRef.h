@@ -1,9 +1,10 @@
 //
 //  AudioStreamBuilderRef.h
+//  swift-oboe
 //
-//  Created by Gabriele Mondada on 1.9.2025.
+//  Created by Gabriele Mondada on September 1, 2025.
 //  Copyright (c) 2025 Gabriele Mondada.
-//  MIT License. See the file COPYRIGHT for details.
+//  MIT License. See the file LICENSE for details.
 //
 
 #pragma once
@@ -31,7 +32,7 @@ public:
         : ptr(ptr) {}
 
     ~AudioStreamBuilderRef() = default;
-    
+
     AudioStreamBuilderRef& operator=(const AudioStreamBuilderRef& ref) = default;
     AudioStreamBuilderRef& operator=(AudioStreamBuilderRef&& ref) noexcept = default;
 
@@ -70,7 +71,7 @@ public:
         return *this;
     }
 
-    oboe::AudioApi getAudioApi() const { 
+    oboe::AudioApi getAudioApi() const {
         return ptr->getAudioApi();
     }
 
@@ -187,7 +188,7 @@ public:
         return *this;
     }
 
-    bool willUseAAudio() const { 
+    bool willUseAAudio() const {
         return ptr->willUseAAudio();
     }
 

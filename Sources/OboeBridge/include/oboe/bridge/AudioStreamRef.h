@@ -1,9 +1,10 @@
 //
 //  AudioStreamRef.h
+//  swift-oboe
 //
-//  Created by Gabriele Mondada on 1.9.2025.
+//  Created by Gabriele Mondada on September 1, 2025.
 //  Copyright (c) 2025 Gabriele Mondada.
-//  MIT License. See the file COPYRIGHT for details.
+//  MIT License. See the file LICENSE for details.
 //
 
 #pragma once
@@ -190,7 +191,7 @@ public:
         return ptr->getChannelCount();
     }
 
-    oboe::Direction getDirection() const { 
+    oboe::Direction getDirection() const {
         return ptr->getDirection();
     }
 
@@ -250,19 +251,19 @@ public:
         return ptr->getSessionId();
     }
 
-    bool isContentSpatialized() const { 
+    bool isContentSpatialized() const {
         return ptr->isContentSpatialized();
     }
 
-    oboe::SpatializationBehavior getSpatializationBehavior() const { 
+    oboe::SpatializationBehavior getSpatializationBehavior() const {
         return ptr->getSpatializationBehavior();
     }
 
-    oboe::AllowedCapturePolicy getAllowedCapturePolicy() const { 
+    oboe::AllowedCapturePolicy getAllowedCapturePolicy() const {
         return ptr->getAllowedCapturePolicy();
     }
 
-    oboe::PrivacySensitiveMode getPrivacySensitiveMode() const { 
+    oboe::PrivacySensitiveMode getPrivacySensitiveMode() const {
         return ptr->getPrivacySensitiveMode();
     }
 
@@ -282,15 +283,15 @@ public:
         return ptr->getChannelMask();
     }
 
-    int32_t getHardwareChannelCount() const { 
+    int32_t getHardwareChannelCount() const {
         return ptr->getHardwareChannelCount();
     }
 
-    int32_t getHardwareSampleRate() const { 
+    int32_t getHardwareSampleRate() const {
         return ptr->getHardwareSampleRate();
     }
 
-    oboe::AudioFormat getHardwareFormat() const { 
+    oboe::AudioFormat getHardwareFormat() const {
         return ptr->getHardwareFormat();
     }
 };

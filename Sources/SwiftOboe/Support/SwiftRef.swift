@@ -1,9 +1,10 @@
 //
 //  SwiftRef.swift
+//  swift-oboe
 //
-//  Created by Gabriele Mondada on 12.09.2025.
+//  Created by Gabriele Mondada on September 12, 2025.
 //  Copyright (c) 2025 Gabriele Mondada.
-//  MIT License. See the file COPYRIGHT for details.
+//  MIT License. See the file LICENSE for details.
 //
 
 import OboeBridge
