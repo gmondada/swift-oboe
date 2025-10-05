@@ -1,5 +1,4 @@
 // swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
@@ -12,7 +11,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(name: "oboe", path: "../../../big/oboe")
+        .package(url: "https://github.com/gmondada/oboe.git", from: "1.9.3"),
     ],
     targets: [
         .target(
