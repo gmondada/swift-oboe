@@ -27,6 +27,11 @@ public struct AudioStreamBuilder {
         return self
     }
 
+    public func setDirection(_ direction: Direction) -> AudioStreamBuilder {
+        ref.setDirection(direction.oboeValue)
+        return self
+    }
+
     public func setSampleRate(_ sampleRate: Int) -> AudioStreamBuilder {
         ref.setSampleRate(Int32(sampleRate))
         return self
