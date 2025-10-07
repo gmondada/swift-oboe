@@ -17,36 +17,43 @@ public struct AudioStreamBuilder {
         self.ref = oboe.bridge.AudioStreamBuilderRef.make()
     }
 
+    @discardableResult
     public func setChannelCount(_ channelCount: Int) -> AudioStreamBuilder {
         ref.setChannelCount(Int32(channelCount))
         return self
     }
 
+    @discardableResult
     public func setChannelMask(_ channelMask: ChannelMask) -> AudioStreamBuilder {
         ref.setChannelMask(channelMask.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setDirection(_ direction: Direction) -> AudioStreamBuilder {
         ref.setDirection(direction.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setSampleRate(_ sampleRate: Int) -> AudioStreamBuilder {
         ref.setSampleRate(Int32(sampleRate))
         return self
     }
 
+    @discardableResult
     public func setFramesPerDataCallback(_ framesPerCallback: Int) -> AudioStreamBuilder {
         ref.setFramesPerDataCallback(Int32(framesPerCallback))
         return self
     }
 
+    @discardableResult
     public func setFormat(_ format: AudioFormat) -> AudioStreamBuilder {
         ref.setFormat(format.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setBufferCapacityInFrames(_ bufferCapacityInFrames: Int) -> AudioStreamBuilder {
         ref.setBufferCapacityInFrames(Int32(bufferCapacityInFrames))
         return self
@@ -61,6 +68,7 @@ public struct AudioStreamBuilder {
         }
     }
 
+    @discardableResult
     public func setAudioApi(_ audioApi: AudioApi) -> AudioStreamBuilder {
         ref.setAudioApi(audioApi.oboeValue)
         return self
@@ -74,56 +82,67 @@ public struct AudioStreamBuilder {
         return oboe.bridge.AudioStreamBuilderRef.isAAudioRecommended()
     }
 
+    @discardableResult
     public func setSharingMode(_ sharingMode: SharingMode) -> AudioStreamBuilder {
         ref.setSharingMode(sharingMode.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setPerformanceMode(_ performanceMode: PerformanceMode) -> AudioStreamBuilder {
         ref.setPerformanceMode(performanceMode.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setUsage(_ usage: Usage) -> AudioStreamBuilder {
         ref.setUsage(usage.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setContentType(_ contentType: ContentType) -> AudioStreamBuilder {
         ref.setContentType(contentType.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setInputPreset(_ inputPreset: InputPreset) -> AudioStreamBuilder {
         ref.setInputPreset(inputPreset.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setSessionId(_ sessionId: SessionId) -> AudioStreamBuilder {
         ref.setSessionId(sessionId.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setDeviceId(_ deviceId: Int) -> AudioStreamBuilder {
         ref.setDeviceId(Int32(deviceId))
         return self
     }
 
+    @discardableResult
     public func setAllowedCapturePolicy(_ allowedCapturePolicy: AllowedCapturePolicy) -> AudioStreamBuilder {
         ref.setAllowedCapturePolicy(allowedCapturePolicy.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setPrivacySensitiveMode(_ privacySensitiveMode: PrivacySensitiveMode) -> AudioStreamBuilder {
         ref.setPrivacySensitiveMode(privacySensitiveMode.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setIsContentSpatialized(_ isContentSpatialized: Bool) -> AudioStreamBuilder {
         ref.setIsContentSpatialized(isContentSpatialized)
         return self
     }
 
+    @discardableResult
     public func setSpatializationBehavior(_ spatializationBehavior: SpatializationBehavior) -> AudioStreamBuilder {
         ref.setSpatializationBehavior(spatializationBehavior.oboeValue)
         return self
@@ -202,26 +221,31 @@ public struct AudioStreamBuilder {
         ref.setErrorCallback(callbackRef)
     }
 
+    @discardableResult
     public func setChannelConversionAllowed(_ allowed: Bool) -> AudioStreamBuilder {
         ref.setChannelConversionAllowed(allowed)
         return self
     }
 
+    @discardableResult
     public func setFormatConversionAllowed(_ allowed: Bool) -> AudioStreamBuilder {
         ref.setFormatConversionAllowed(allowed)
         return self
     }
 
+    @discardableResult
     public func setSampleRateConversionQuality(_ quality: SampleRateConversionQuality) -> AudioStreamBuilder {
         ref.setSampleRateConversionQuality(quality.oboeValue)
         return self
     }
 
+    @discardableResult
     public func setPackageName(_ packageName: String) -> AudioStreamBuilder {
         ref.setPackageName(packageName)
         return self
     }
 
+    @discardableResult
     public func setAttributionTag(_ attributionTag: String) -> AudioStreamBuilder {
         ref.setAttributionTag(attributionTag)
         return self
