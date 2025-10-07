@@ -148,7 +148,8 @@ public struct AudioStreamBuilder {
         return self
     }
 
-    public func setUnsafeDataCallback(_ callback: @escaping UnsafeRawDataCallback) {
+    @discardableResult
+    public func setUnsafeDataCallback(_ callback: @escaping UnsafeRawDataCallback) -> AudioStreamBuilder {
         let closureRef = oboe.bridge.SwiftRef(callback as AnyObject)
         let callbackRef = oboe.bridge.SwiftDataCallbackRef.make(closureRef) {
             (context, audioStreamRef, data, numFrames) in
@@ -158,35 +159,43 @@ public struct AudioStreamBuilder {
             return result.oboeValue
         }
         ref.setDataCallback(callbackRef)
+        return self
     }
 
-    public func setUnsafeDataCallback<T>(_ callback: @escaping UnsafeDataCallback<T>) {
+    @discardableResult
+    public func setUnsafeDataCallback<T>(_ callback: @escaping UnsafeDataCallback<T>) -> AudioStreamBuilder {
         setUnsafeDataCallback { (audioStream, data, numFrames) in
             precondition(MemoryLayout<T>.stride == audioStream.bytesPerSample, "Inconsistent sample size")
             let buffer = UnsafeMutableBufferPointer<T>(start: data.assumingMemoryBound(to: T.self), count: numFrames * audioStream.channelCount)
             return callback(audioStream, buffer, numFrames)
         }
+        return self
     }
 
-    public func setOutputDataCallback<T>(_ callback: @escaping OutputDataCallback<T>) {
+    @discardableResult
+    public func setOutputDataCallback<T>(_ callback: @escaping OutputDataCallback<T>) -> AudioStreamBuilder {
         setUnsafeDataCallback { (audioStream, data, numFrames) in
             precondition(MemoryLayout<T>.stride == audioStream.bytesPerSample, "Inconsistent sample size")
             let buffer = UnsafeMutableBufferPointer<T>(start: data.assumingMemoryBound(to: T.self), count: numFrames * audioStream.channelCount)
             var span = MutableSpan<T>(_unsafeElements: buffer)
             return callback(audioStream, &span, numFrames)
         }
+        return self
     }
 
-    public func setInputDataCallback<T>(_ callback: @escaping InputDataCallback<T>) {
+    @discardableResult
+    public func setInputDataCallback<T>(_ callback: @escaping InputDataCallback<T>) -> AudioStreamBuilder {
         setUnsafeDataCallback { (audioStream, data, numFrames) in
             precondition(MemoryLayout<T>.stride == audioStream.bytesPerSample, "Inconsistent sample size")
             let buffer = UnsafeBufferPointer<T>(start: data.assumingMemoryBound(to: T.self), count: numFrames * audioStream.channelCount)
             let span = Span<T>(_unsafeElements: buffer)
             return callback(audioStream, span, numFrames)
         }
+        return self
     }
 
-    public func setErrorCallback(_ callback: @escaping ErrorCallback) {
+    @discardableResult
+    public func setErrorCallback(_ callback: @escaping ErrorCallback) -> AudioStreamBuilder {
         let closureRef = oboe.bridge.SwiftRef(callback as AnyObject)
         let callbackRef = oboe.bridge.SwiftErrorCallbackRef.make(closureRef) {
             (context, audioStream, phase, result) in
@@ -198,9 +207,11 @@ public struct AudioStreamBuilder {
             }
         }
         ref.setErrorCallback(callbackRef)
+        return self
     }
 
-    public func setErrorCallbackObject(_ callback: any ErrorCallbackObject) {
+    @discardableResult
+    public func setErrorCallbackObject(_ callback: any ErrorCallbackObject) -> AudioStreamBuilder {
         let objectRef = oboe.bridge.SwiftRef(callback as AnyObject)
         let callbackRef = oboe.bridge.SwiftErrorCallbackRef.make(objectRef) {
             (context, audioStream, phase, result) in
@@ -219,6 +230,7 @@ public struct AudioStreamBuilder {
             }
         }
         ref.setErrorCallback(callbackRef)
+        return self
     }
 
     @discardableResult
