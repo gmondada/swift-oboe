@@ -1,0 +1,15 @@
+{
+  "originHash" : "144037644e05180618cc092c9dc22786cf6d7928f0cffe0934920c2ea089cd4a",
+  "pins" : [
+    {
+      "identity" : "oboe",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gmondada/oboe.git",
+      "state" : {
+        "revision" : "c1e0838cbe67a850724c5b259b4f7452ce796c95",
+        "version" : "1.9.3"
+      }
+    }
+  ],
+  "version" : 3
+}
