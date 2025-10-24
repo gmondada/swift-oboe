@@ -74,11 +74,11 @@ public struct AudioStreamBuilder {
         return self
     }
 
-    static var isAAudioSupported: Bool {
+    public static var isAAudioSupported: Bool {
         return oboe.bridge.AudioStreamBuilderRef.isAAudioSupported()
     }
 
-    static var isAAudioRecommended: Bool {
+    public static var isAAudioRecommended: Bool {
         return oboe.bridge.AudioStreamBuilderRef.isAAudioRecommended()
     }
 
